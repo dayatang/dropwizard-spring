@@ -58,9 +58,13 @@ public class SpringBundle<T extends Configuration> implements ConfiguredBundle<T
      * @param registerEnvironment   register Dropwizard environment as a Spring Bean.
      * @param registerPlaceholder   resolve Dropwizard configuration as properties.
      */
-    public SpringBundle(ConfigurableApplicationContext context, boolean registerConfiguration, boolean registerEnvironment, boolean registerPlaceholder) {
+    public SpringBundle(ConfigurableApplicationContext context,
+                        boolean registerConfiguration,
+                        boolean registerEnvironment,
+                        boolean registerPlaceholder) {
         if (registerConfiguration || registerEnvironment  || registerPlaceholder) {
-            Preconditions.checkArgument(!context.isActive(), "Context must be not active in order to register configuration, environment or placeholder");
+            Preconditions.checkArgument(!context.isActive(),
+                    "Context must be not active in order to register configuration, environment or placeholder");
         }
         this.context = context;
         this.registerConfiguration = registerConfiguration;
@@ -77,10 +81,14 @@ public class SpringBundle<T extends Configuration> implements ConfiguredBundle<T
      * @param registerEnvironment   register Dropwizard environment as a Spring Bean.
      * @param placeholderConfigurer placeholderConfigurer to resolve Dropwizard configuration as properties.
      */
-    public SpringBundle(ConfigurableApplicationContext context, boolean registerConfiguration, boolean registerEnvironment, ConfigurationPlaceholderConfigurer placeholderConfigurer) {
+    public SpringBundle(ConfigurableApplicationContext context,
+                        boolean registerConfiguration,
+                        boolean registerEnvironment,
+                        ConfigurationPlaceholderConfigurer placeholderConfigurer) {
         Preconditions.checkArgument(placeholderConfigurer != null, "PlaceholderConfigurer is required");
         if (registerConfiguration || registerEnvironment  || placeholderConfigurer != null) {
-            Preconditions.checkArgument(!context.isActive(), "Context must be not active in order to register configuration, environment or placeholder");
+            Preconditions.checkArgument(!context.isActive(),
+                    "Context must be not active in order to register configuration, environment or placeholder");
         }
         this.context = context;
         this.registerConfiguration = registerConfiguration;
