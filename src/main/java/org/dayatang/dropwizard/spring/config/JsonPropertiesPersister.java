@@ -12,7 +12,7 @@ import java.util.Properties;
 
 /**
  * {@link org.springframework.util.PropertiesPersister} that reads from a JSON source.
- * <p/>
+ *
  * This code was inspired from  <a href="https://gist.com.com/2051955">Dave Syer YamlPropertiesFactoryBean</a>.
  *
  * @author Dave Syer
@@ -38,9 +38,6 @@ public class JsonPropertiesPersister extends DefaultPropertiesPersister {
      * We want to traverse map representing Json object and each time we find String:String pair we want to
      * save it as Property. As we are going deeper into map we generate compound key as path-like String
      *
-     * @param props
-     * @param reader
-     * @throws IOException
      * @see org.springframework.util.PropertiesPersister#load(java.util.Properties, java.io.Reader)
      */
     @Override
