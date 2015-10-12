@@ -24,10 +24,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -81,7 +79,7 @@ public class SpringBundleTest {
         ArgumentCaptor<HelloResource> resource = ArgumentCaptor.forClass(HelloResource.class);
         verify(environment).jersey();
         verify(jerseyEnvironment).register(resource.capture());
-        assertThat(resource.getValue(), is(HelloResource.class));
+        assertThat(resource.getValue()).isInstanceOf(HelloResource.class);
     }
 
     @Test
@@ -94,7 +92,7 @@ public class SpringBundleTest {
         verify(environment).healthChecks();
         verify(healthCheckRegistry).register(anyString(), healthCheck.capture());
 
-        assertThat(healthCheck.getValue(), is(HelloHealthCheck.class));
+        assertThat(healthCheck.getValue()).isInstanceOf(HelloHealthCheck.class);
     }
 
     @Test
@@ -106,7 +104,7 @@ public class SpringBundleTest {
         ArgumentCaptor<? extends Task> task = ArgumentCaptor.forClass(Task.class);
         verify(environment).admin();
         verify(adminEnvironment).addTask(task.capture());
-        assertThat(task.getValue(), is(HelloTask.class));
+        assertThat(task.getValue()).isInstanceOf(HelloTask.class);
     }
 
     @Test
@@ -118,7 +116,7 @@ public class SpringBundleTest {
         ArgumentCaptor<? extends ServerLifecycleListener> listener = ArgumentCaptor.forClass(ServerLifecycleListener.class);
         verify(environment, atLeastOnce()).lifecycle();
         verify(lifecycleEnvironment).addServerLifecycleListener(listener.capture());
-        assertThat(listener.getValue(), is(HelloServerLifecycleListener.class));
+        assertThat(listener.getValue()).isInstanceOf(HelloServerLifecycleListener.class);
     }
 
     @Test
@@ -132,7 +130,7 @@ public class SpringBundleTest {
         verify(jerseyEnvironment).register(resource.capture());
 
         HelloResource r = resource.getValue();
-        assertThat(r.getPort(), is(8080)); // Defaut port
+        assertThat(r.getPort()).isEqualTo(8080); // Defaut port
     }
 
     @Test
@@ -141,7 +139,7 @@ public class SpringBundleTest {
         bundle.run(configuration, environment);
 
         // Then
-        assertThat(context.getBean("dwEnv"), instanceOf(Environment.class));
+        assertThat(context.getBean("dwEnv")).isInstanceOf(Environment.class);
     }
 
 
@@ -158,10 +156,10 @@ public class SpringBundleTest {
         HelloResource r = resource.getValue();
         final HelloService helloService = r.getHelloService();
         assertNotNull(helloService);
-        assertThat(helloService.getMessage(), is("Hello"));
+        assertThat(helloService.getMessage()).isEqualTo("Hello");
 
-        assertThat(r.getConfiguration(), instanceOf(Configuration.class));
-        assertThat(r.getEnvironment(), instanceOf(Environment.class));
+        assertThat(r.getConfiguration()).isInstanceOf(Configuration.class);
+        assertThat(r.getEnvironment()).isInstanceOf(Environment.class);
     }
 
 

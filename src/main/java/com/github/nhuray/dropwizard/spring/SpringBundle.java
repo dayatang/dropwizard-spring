@@ -4,7 +4,6 @@ import com.codahale.metrics.health.HealthCheck;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.nhuray.dropwizard.spring.config.ConfigurationPlaceholderConfigurer;
 import com.google.common.base.Preconditions;
-import com.sun.jersey.spi.inject.InjectableProvider;
 import io.dropwizard.Configuration;
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.lifecycle.Managed;
@@ -109,7 +108,6 @@ public class SpringBundle<T extends Configuration> implements ConfiguredBundle<T
         registerServerLifecycleListeners(environment, context);
         registerTasks(environment, context);
         registerHealthChecks(environment, context);
-        registerInjectableProviders(environment, context);
         registerProviders(environment, context);
         registerResources(environment, context);
         environment.lifecycle().manage(new SpringContextManaged(context));
@@ -225,23 +223,6 @@ public class SpringBundle<T extends Configuration> implements ConfiguredBundle<T
             HealthCheck healthCheck = beansOfType.get(beanName);
             environment.healthChecks().register(beanName, healthCheck);
             LOG.info("Registering healthCheck: " + healthCheck.getClass().getName());
-        }
-    }
-
-
-    /**
-     * Register {@link InjectableProvider}s in Dropwizard {@link Environment} from Spring application context.
-     *
-     * @param environment the Dropwizard environment
-     * @param context     the Spring application context
-     */
-    private void registerInjectableProviders(Environment environment, ConfigurableApplicationContext context) {
-        final Map<String, InjectableProvider> beansOfType = context.getBeansOfType(InjectableProvider.class);
-        for (String beanName : beansOfType.keySet()) {
-            // Add injectableProvider to Dropwizard environment
-            InjectableProvider injectableProvider = beansOfType.get(beanName);
-            environment.jersey().register(injectableProvider);
-            LOG.info("Registering injectable provider: " + injectableProvider.getClass().getName());
         }
     }
 
