@@ -1,4 +1,4 @@
-package com.github.nhuray.dropwizard.spring.config;
+package org.dayatang.dropwizard.spring.config;
 
 import org.junit.Assert;
 import org.junit.Test;

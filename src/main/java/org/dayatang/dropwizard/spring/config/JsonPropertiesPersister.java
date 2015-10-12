@@ -1,4 +1,4 @@
-package com.github.nhuray.dropwizard.spring.config;
+package org.dayatang.dropwizard.spring.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.util.DefaultPropertiesPersister;

@@ -1,4 +1,4 @@
-package com.github.nhuray.dropwizard.spring;
+package org.dayatang.dropwizard.spring;
 
 import io.dropwizard.lifecycle.Managed;
 import org.springframework.context.ConfigurableApplicationContext;

@@ -1,7 +1,7 @@
 package hello;
 
 
-import com.github.nhuray.dropwizard.spring.SpringBundle;
+import org.dayatang.dropwizard.spring.SpringBundle;
 import hello.config.HelloAppConfiguration;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;

@@ -1,4 +1,4 @@
-package com.github.nhuray.dropwizard.spring;
+package org.dayatang.dropwizard.spring;
 
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheckRegistry;

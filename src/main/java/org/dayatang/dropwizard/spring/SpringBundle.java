@@ -1,8 +1,8 @@
-package com.github.nhuray.dropwizard.spring;
+package org.dayatang.dropwizard.spring;
 
 import com.codahale.metrics.health.HealthCheck;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.nhuray.dropwizard.spring.config.ConfigurationPlaceholderConfigurer;
+import org.dayatang.dropwizard.spring.config.ConfigurationPlaceholderConfigurer;
 import com.google.common.base.Preconditions;
 import io.dropwizard.Configuration;
 import io.dropwizard.ConfiguredBundle;
