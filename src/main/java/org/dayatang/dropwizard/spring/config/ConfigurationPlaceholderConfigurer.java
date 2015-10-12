@@ -89,11 +89,6 @@ public class ConfigurationPlaceholderConfigurer implements BeanFactoryPostProces
         propertiesPersister.load(props, new ByteArrayInputStream(stream.toByteArray()));
     }
 
-    /**
-     * @param beanFactory
-     * @param props
-     * @throws BeansException
-     */
     protected void processProperties(ConfigurableListableBeanFactory beanFactory, Properties props) throws BeansException {
         StringValueResolver valueResolver = new PlaceholderResolvingStringValueResolver(props);
         doProcessProperties(beanFactory, valueResolver);
