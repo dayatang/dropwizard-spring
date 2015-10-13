@@ -51,12 +51,51 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <properties>
-        <dropwizard.version>0.9.0-rc4</dropwizard.version>
-        <spring.version>4.2.1.RELEASE</spring.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <guava.version>18.0</guava.version>
-    </properties>
+    <repositories>
+        <repository>
+            <id>dayatang-releases</id>
+            <url>http://nexus.dayatang.org/content/groups/public-release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>dayatang-snapshots</id>
+            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>dayatang-releases</id>
+            <url>http://nexus.dayatang.org/content/groups/public-release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>dayatang-snapshots</id>
+            <url>http://nexus.dayatang.org/content/groups/public-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <!-- Compile Dependencies -->
@@ -185,5 +224,12 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <properties>
+        <dropwizard.version>0.9.0-rc4</dropwizard.version>
+        <spring.version>4.2.1.RELEASE</spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <guava.version>18.0</guava.version>
+    </properties>
 
 </project>
