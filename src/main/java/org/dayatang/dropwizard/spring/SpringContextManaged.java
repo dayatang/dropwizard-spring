@@ -1,8 +1,6 @@
 package org.dayatang.dropwizard.spring;
 
 import io.dropwizard.lifecycle.Managed;
-import org.dayatang.domain.InstanceFactory;
-import org.dayatang.ioc.spring.factory.SpringInstanceProvider;
 import org.springframework.context.ConfigurableApplicationContext;
 
 
@@ -15,8 +13,6 @@ public class SpringContextManaged implements Managed {
 
   @Override
   public void start() throws Exception {
-    SpringInstanceProvider instanceProvider = new SpringInstanceProvider(context);
-    InstanceFactory.setInstanceProvider(instanceProvider);
   }
 
   @Override
