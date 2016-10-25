@@ -1,12 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
-    -->
     <groupId>org.dayatang.dropwizard</groupId>
     <artifactId>dropwizard-spring</artifactId>
     <version>1.0.3-SNAPSHOT</version>
@@ -139,7 +132,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.9.5</version>
+            <version>2.2.7</version>
             <scope>test</scope>
         </dependency>
         <!-- CGLIB, only required and used for @Configuration usage -->
@@ -152,7 +145,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.2.0</version>
+            <version>3.5.1</version>
             <scope>test</scope>
         </dependency>
 
