@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.dayatang.dropwizard</groupId>
     <artifactId>dropwizard-spring</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>Dropwizard/Spring integration</name>
     <description>Dropwizard/Spring integration</description>
@@ -11,7 +11,7 @@
         <connection>scm:git:git@github.com:dayatang/dropwizard-spring.git</connection>
         <url>git@github.com:dayatang/dropwizard-spring</url>
         <developerConnection>scm:git:git@github.com:dayatang/dropwizard-spring.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>dropwizard-spring-1.0.3</tag>
   </scm>
 
     <licenses>
